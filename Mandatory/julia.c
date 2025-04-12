@@ -6,7 +6,7 @@
 /*   By: ojrhaide <ojrhaide@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:09:45 by ojrhaide          #+#    #+#             */
-/*   Updated: 2025/04/06 07:28:05 by ojrhaide         ###   ########.fr       */
+/*   Updated: 2025/04/12 06:04:40 by ojrhaide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void calculate_julia(t_fractal *f)
         return;
 
     f->name = "julia";
-    f->zx = f->x / f->zoom + f->offset_x;
-    f->zy = -f->y / f->zoom - f->offset_y;
+    f->zx = f->x / f->zoom + f->off_x;
+    f->zy = -f->y / f->zoom - f->off_y;
     i = 0;
 
     while (i < f->max_iterations && hypot(f->zx, f->zy) < 2.0)
@@ -38,7 +38,7 @@ void calculate_julia(t_fractal *f)
         i++;
     }
     if (i == f->max_iterations)
-        put_color_to_pixel(f, f->x, f->y, 0x000000); // Black for points in the set
+        put_color_to_pixel(f, f->x, f->y, 0x000000);
     else
     {
         unsigned int color = f->color * i;

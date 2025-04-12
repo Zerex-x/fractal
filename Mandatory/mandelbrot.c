@@ -6,7 +6,7 @@
 /*   By: ojrhaide <ojrhaide@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:09:55 by ojrhaide          #+#    #+#             */
-/*   Updated: 2025/03/30 09:25:01 by ojrhaide         ###   ########.fr       */
+/*   Updated: 2025/04/12 05:36:42 by ojrhaide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	calculate_mandelbrot(t_fractal *f)
 	f->name = "mandelbrot";
 	f->zx = 0.0;	
 	f->zy = 0.0;
-	f->cx = (f->x / f->zoom) + f->offset_x;
-	f->cy = (f->y / f->zoom) + f->offset_y;
+	f->cx = (f->x / f->zoom) + f->off_x;
+	f->cy = (f->y / f->zoom) + f->off_y;
 	i = 0;
 	while (i < f->max_iterations && hypot(f->zx, f->zy) < 2.0)
 	{

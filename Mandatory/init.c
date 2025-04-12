@@ -6,7 +6,7 @@
 /*   By: ojrhaide <ojrhaide@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:09:37 by ojrhaide          #+#    #+#             */
-/*   Updated: 2025/04/08 00:36:17 by ojrhaide         ###   ########.fr       */
+/*   Updated: 2025/04/12 05:35:05 by ojrhaide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	init_fractal(t_fractal *fractal)
 	fractal->y = 0;
 	fractal->color = 0x00060E;
 	fractal->zoom = 200.0;
-	fractal->offset_x = -1.70;
-	fractal->offset_y = -1.40;
+	fractal->off_x = -1.70;
+	fractal->off_y = -1.40;
 	fractal->max_iterations = 50;
 	fractal->cx = 0.0;
 	fractal->cy = 0.0;

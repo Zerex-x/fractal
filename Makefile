@@ -13,8 +13,8 @@ MANDATORY_SRC	= $(MANDATORY_DIR)/main.c \
 				  $(MANDATORY_DIR)/mandelbrot.c \
 				  $(MANDATORY_DIR)/mouse_and_keys.c \
 				  $(MANDATORY_DIR)/is_valid_float.c \
-				  $(MANDATORY_DIR)/helper.c
-
+				  $(MANDATORY_DIR)/helper.c\
+				  ${MANDATORY_DIR}/parser.c
 
 MANDATORY_OBJS	= $(MANDATORY_SRC:.c=.o)
 

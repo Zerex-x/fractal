@@ -6,7 +6,7 @@
 /*   By: ojrhaide <ojrhaide@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:09:59 by ojrhaide          #+#    #+#             */
-/*   Updated: 2025/03/28 17:43:58 by ojrhaide         ###   ########.fr       */
+/*   Updated: 2025/04/12 05:40:17 by ojrhaide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ void	zoom(t_fractal *fractal, int zoom)
 	if (!fractal || fractal->zoom <= 0)
 		return ;
 	zoom_factor = 1.2;
-	center_x = (600 / 2) / fractal->zoom + fractal->offset_x;
-	center_y = (600 / 2) / fractal->zoom + fractal->offset_y;
+	center_x = (600 / 2) / fractal->zoom + fractal->off_x;
+	center_y = (600 / 2) / fractal->zoom + fractal->off_y;
 	if (zoom == 1)
 		fractal->zoom *= zoom_factor;
 	else if (zoom == -1)
 		fractal->zoom /= zoom_factor;
-	fractal->offset_x = center_x - (600 / 2) / fractal->zoom;
-	fractal->offset_y = center_y - (600 / 2) / fractal->zoom;
+	fractal->off_x = center_x - (600 / 2) / fractal->zoom;
+	fractal->off_y = center_y - (600 / 2) / fractal->zoom;
 }
 
 int	key_hook(int key_code, t_fractal *fractal)
