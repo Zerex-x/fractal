@@ -5,7 +5,7 @@ MANDATORY_DIR	= Mandatory
 
 MLX_FLAGS	=  -lmlx -framework OpenGL -framework AppKit -lm 
 
-MANDATORY_SRC	= $(MANDATORY_DIR)/main.c \
+MANDATORY_SRC	= $(MANDATORY_DIR)/index.c \
 				  $(MANDATORY_DIR)/julia.c \
 				  $(MANDATORY_DIR)/init.c \
 				  $(MANDATORY_DIR)/draw.c \
