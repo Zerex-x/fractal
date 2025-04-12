@@ -6,56 +6,56 @@
 /*   By: ojrhaide <ojrhaide@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:09:27 by ojrhaide          #+#    #+#             */
-/*   Updated: 2025/04/06 07:22:38 by ojrhaide         ###   ########.fr       */
+/*   Updated: 2025/04/12 03:14:23 by ojrhaide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FRACTOL_H
-# define FRACTOL_H
+#ifndef PATTERN_H
+# define PATTERN_H
 
 # include <mlx.h>
 # include <math.h>
 # include <unistd.h>
 # include <stdlib.h>
 
-typedef struct s_fractal
+typedef struct s_pattern
 {
-	void	*mlx;
-	void	*window;
-	void	*image;
-	void	*pointer_to_image;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	int		x;
-	int		y;
-	double	zx;
-	double	zy;
-	double	cx;
-	double	cy;
-	int		color;
-	double	offset_x;
-	double	offset_y;
-	double	zoom;
-	char	*name;
-	int		max_iterations;
-}	t_fractal;
+	void	*engine;
+	void	*display;
+	void	*canvas;
+	void	*canvas_pointer;
+	int		bpp;
+	int		line_size;
+	int		byte_order;
+	int		coord_x;
+	int		coord_y;
+	double	real_part;
+	double	imaginary_part;
+	double	real_const;
+	double	imaginary_const;
+	int		shade;
+	double	shift_x;
+	double	shift_y;
+	double	scale;
+	char	*type_name;
+	int		iteration_limit;
+}	t_pattern;
 
-int		ft_strcmp(char *s1, char *s2);
-void	put_color_to_pixel(t_fractal *fractal, int x, int y, int iterations);
-int		exit_fractal(t_fractal *fractal);
-void	init_fractal(t_fractal *fractal);
-void	init_mlx(t_fractal *fractal);
-void	calculate_mandelbrot(t_fractal *fractal);
-void	calculate_julia(t_fractal *fractal);
-int		draw_fractal(t_fractal *fractal, char *query);
-int		key_hook(int key_code, t_fractal *fractal);
-int		mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
-void	draw_mandelbrot(t_fractal *fractal);
-void	draw_julia(t_fractal *fractal);
-double	ft_atof(const char *str);
-int		is_valid_float(const char *str);
-void	put_color_to_pixel(t_fractal *fractal, int x, int y, int color);
-int		ft_isdigit(int c);
+int		str_compare(char *str1, char *str2);
+void	apply_shade_to_pixel(t_pattern *pattern, int pos_x, int pos_y, int iteration_count);
+int		close_pattern(t_pattern *pattern);
+void	initialize_pattern(t_pattern *pattern);
+void	initialize_engine(t_pattern *pattern);
+void	compute_mandelbrot(t_pattern *pattern);
+void	compute_julia(t_pattern *pattern);
+int		render_pattern(t_pattern *pattern, char *query);
+int		handle_key_event(int key_code, t_pattern *pattern);
+int		handle_mouse_event(int mouse_code, int pos_x, int pos_y, t_pattern *pattern);
+void	render_mandelbrot(t_pattern *pattern);
+void	render_julia(t_pattern *pattern);
+double	string_to_double(const char *str);
+int		is_valid_double(const char *str);
+void	apply_shade_to_pixel(t_pattern *pattern, int pos_x, int pos_y, int shade);
+int		is_digit(int character);
 
 #endif

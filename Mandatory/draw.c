@@ -6,56 +6,56 @@
 /*   By: ojrhaide <ojrhaide@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 13:09:23 by ojrhaide          #+#    #+#             */
-/*   Updated: 2025/04/06 07:22:43 by ojrhaide         ###   ########.fr       */
+/*   Updated: 2025/04/12 03:30:45 by ojrhaide         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	draw_mandelbrot(t_fractal *fractal)
+void	render_mandelbrot(t_pattern *pattern)
 {
-	int			x;
-	int			y;
+	int			pos_x;
+	int			pos_y;
 
-	if (!fractal || !fractal->mlx || !fractal->window || !fractal->image)
+	if (!pattern || !pattern->engine || !pattern->display || !pattern->canvas)
 		return ;
-	x = 0;
-	while (x < 600)
+	pos_x = 0;
+	while (pos_x < 600)
 	{
-		y = 0;
-		while (y < 600)
+		pos_y = 0;
+		while (pos_y < 600)
 		{
-			fractal->x = x;
-			fractal->y = y;
-			calculate_mandelbrot(fractal);
-			y++;
+			pattern->coord_x = pos_x;
+			pattern->coord_y = pos_y;
+			compute_mandelbrot(pattern);
+			pos_y++;
 		}
-		x++;
+		pos_x++;
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->window,
-		fractal->image, 0, 0);
+	engine_draw_to_window(pattern->engine, pattern->display,
+		pattern->canvas, 0, 0);
 }
 
-void	draw_julia(t_fractal *fractal)
+void	render_julia(t_pattern *pattern)
 {
-	int	x;
-	int	y;
+	int	pos_x;
+	int	pos_y;
 
-	if (!fractal || !fractal->mlx || !fractal->window || !fractal->image)
+	if (!pattern || !pattern->engine || !pattern->display || !pattern->canvas)
 		return ;
-	x = 0;
-	while (x < 600)
+	pos_x = 0;
+	while (pos_x < 600)
 	{
-		y = 0;
-		while (y < 600)
+		pos_y = 0;
+		while (pos_y < 600)
 		{
-			fractal->x = x;
-			fractal->y = y;
-			calculate_julia(fractal);
-			y++;
+			pattern->coord_x = pos_x;
+			pattern->coord_y = pos_y;
+			compute_julia(pattern);
+			pos_y++;
 		}
-		x++;
+		pos_x++;
 	}
-	mlx_put_image_to_window(fractal->mlx, fractal->window,
-		fractal->image, 0, 0);
+	engine_draw_to_window(pattern->engine, pattern->display,
+		pattern->canvas, 0, 0);
 }
